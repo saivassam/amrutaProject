@@ -1,0 +1,75 @@
+const mongoose = require('mongoose');
+
+const CandidateSchema = new mongoose.Schema({
+    fullName:{
+        type:String,
+        require:true
+    },
+    email:{
+        type:String,
+        require:true,
+        unique:true
+    },
+    mobileNo1:{
+        type:Number,
+        require:true,
+        unique:true
+    },
+    mobileNo2:{
+        type:Number,
+        unique:true
+    },
+    permanentAddress:{
+        type:String,
+        require:true
+    },
+    temporaryAddress:{
+        type:String,
+        require:true
+    },
+    guardianName:{
+        type:String,
+        require:true
+    },
+    guardianRelation:{
+        type:String,
+        enum:["Father","Brother","Mother","Sister","Relative"],
+        default:"Father"
+    },
+    guardianContact:{
+        type:Number,
+        require:true
+    },
+    maritalStatus:{
+        type:String,
+        enum:["Married","Unmarried","Divorsed"],
+        default:"Unmarried"
+    },
+    joiningDate:{
+        type:Date,
+    },
+    profession:{
+        type:String,
+        enum:["Student","Working"],
+        default:"Student"
+    },
+    collegeOrWorkPlace:{
+        type:String,
+        require:true
+    },
+    idProof:{
+        type:String,
+        enum:["Aadhar","Pan Card","Passport"],
+        default:"Aadhar"
+    },
+    idProofFile:{
+        type:String,
+        require:true
+    },
+    AllocatedRoom:{
+        type:Number,
+        default:0
+    }
+})
+const Candidate = mongoose.model('candidate',CandidateSchema);
+module.exports = Candidate;

@@ -1,11 +1,12 @@
 const mongoose = require('mongoose');
-const url = "mongodb+srv://pavan1010:pavan1010@taskmanager.qjb1owe.mongodb.net/?retryWrites=true&w=majority"
+//this is url of Amruta's project in mongdb database 
 async function connect(){
-    await mongoose.connect(url).then(()=>{
-        console.log("connected to mongodb".yellow)
+    await mongoose.connect("mongodb+srv://pavan1010:pavan1010@database1.vkiormi.mongodb.net/?retryWrites=true&w=majority")
+    .then(()=>{
+        console.log("connected to mongodb")
     }).catch(err=>{
-        console.log(err.bgRed)
+        console.log(err)
     })
 }
 
-module.exports = connect;
+module.exports = connect
